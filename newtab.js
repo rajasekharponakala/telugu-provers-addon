@@ -6,7 +6,9 @@ const HISTORY_KEY = "recentProverbs";
 const THEME_KEY = "theme";
 
 const proverbEl = document.getElementById("proverb");
+const explainEl = document.getElementById("explain");
 const meaningEl = document.getElementById("meaning");
+const englishEl = document.getElementById("english");
 const counterEl = document.getElementById("counter");
 const nextButton = document.getElementById("nextButton");
 const copyButton = document.getElementById("copyButton");
@@ -62,21 +64,29 @@ function showProverb() {
   const index = pickIndex();
   current = normalize(PROVERBS[index]);
 
-  proverbEl.classList.remove("fade-in");
-  // Force a reflow so the animation restarts on every change.
-  void proverbEl.offsetWidth;
-  proverbEl.classList.add("fade-in");
+  for (const el of [proverbEl, explainEl]) {
+    el.classList.remove("fade-in");
+    // Force a reflow so the animation restarts on every change.
+    void el.offsetWidth;
+    el.classList.add("fade-in");
+  }
 
   proverbEl.textContent = current.text;
   meaningEl.textContent = current.meaning || "";
   meaningEl.hidden = !current.meaning;
+  englishEl.textContent = current.en || "";
+  englishEl.hidden = !current.en;
+  explainEl.hidden = !current.meaning && !current.en;
   counterEl.textContent = `${index + 1} / ${PROVERBS.length}`;
 }
 
 async function copyProverb() {
   if (!current) return;
   try {
-    await navigator.clipboard.writeText(current.text);
+    const lines = [current.text];
+    if (current.meaning) lines.push(`భావం: ${current.meaning}`);
+    if (current.en) lines.push(current.en);
+    await navigator.clipboard.writeText(lines.join("\n"));
     copyLabel.textContent = "కాపీ అయింది ✓";
   } catch {
     copyLabel.textContent = "కాపీ కాలేదు";

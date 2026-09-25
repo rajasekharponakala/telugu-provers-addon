@@ -11,7 +11,8 @@ The proverbs come from the Telugu Wikipedia
 
 - A random proverb on every new tab, without repeating the last 30 you saw
 - **మరొకటి** button (or <kbd>Space</kbd> / <kbd>→</kbd> / <kbd>N</kbd>) for another proverb
-- **కాపీ** button (or <kbd>C</kbd>) to copy the proverb
+- The meaning of each proverb (భావం) in Telugu, with a short English meaning
+- **కాపీ** button (or <kbd>C</kbd>) to copy the proverb and its meaning
 - Light and dark themes (follows your system setting, toggle in the top-right corner)
 - Bundled Noto Serif/Sans Telugu fonts, so it renders correctly even without Telugu fonts installed
 - Works fully offline: no network requests, no permissions, no data collection
@@ -30,21 +31,18 @@ npx web-ext lint     # validates the add-on
 npx web-ext build    # creates the .zip to upload to addons.mozilla.org
 ```
 
-## Updating the proverb list
+## The proverbs
 
-`proverbs.js` currently holds a starter set of well-known proverbs. To import the
-full list from Telugu Wikipedia, run (Python 3, no extra packages needed):
+`proverbs.js` holds 441 proverbs from the Telugu Wikipedia list, cleaned up and
+de-duplicated. Riddles, broken entries and crude or demeaning proverbs were left out.
+Each entry has a Telugu meaning (భావం) and a short English meaning:
 
-```sh
-python3 scripts/fetch_proverbs.py --dry-run   # preview what will be imported
-python3 scripts/fetch_proverbs.py             # regenerate proverbs.js
+```js
+{ text: "అందని ద్రాక్ష పుల్లన", meaning: "దొరకని దాన్ని చెడ్డదని తీసిపారేయడం.", en: "Grapes out of reach are sour." },
 ```
 
-The script reads the page through the MediaWiki API, follows its sub-pages, and
-keeps every list item written in Telugu. A nested list item under a proverb, or text
-after a spaced dash (`సామెత – అర్థం`), is shown as the proverb's meaning.
-Wikipedia text is licensed CC BY-SA 4.0; the new tab page shows the attribution
-automatically once the list is imported.
+To add or correct a proverb, edit that file. The proverbs come from Wikipedia and are
+licensed CC BY-SA 4.0; the new tab page credits the source.
 
 ## Project layout
 
@@ -52,7 +50,6 @@ automatically once the list is imported.
 | --- | --- |
 | `manifest.json` | Extension manifest (Manifest V3, overrides the new tab page) |
 | `newtab.html`, `newtab.js`, `style.css` | The new tab page |
-| `proverbs.js` | Proverb data (`PROVERBS` array) |
+| `proverbs.js` | Proverbs with their meanings (`PROVERBS` array) |
 | `fonts/` | Noto Telugu fonts (SIL Open Font License, see `fonts/OFL.txt`) |
 | `icons/icon.svg` | Add-on icon |
-| `scripts/fetch_proverbs.py` | Imports proverbs from Telugu Wikipedia |

@@ -18,7 +18,11 @@
     <main class="card">
       <p class="eyebrow">నేటి సామెత</p>
       <blockquote id="proverb" class="proverb" lang="te" aria-live="polite"></blockquote>
-      <p id="meaning" class="meaning" hidden></p>
+      <section id="explain" class="explain" hidden>
+        <p class="explain-label">భావం</p>
+        <p id="meaning" class="meaning" lang="te"></p>
+        <p id="english" class="english" lang="en"></p>
+      </section>
 
       <div class="actions">
         <button id="nextButton" class="button primary" title="మరొక సామెత (Space / →)">
@@ -33,6 +37,7 @@
     </main>
 
     <footer class="footer">
+      సామెతలు:
       <a id="sourceLink" href="https://te.wikipedia.org/wiki/%E0%B0%B8%E0%B0%BE%E0%B0%AE%E0%B1%86%E0%B0%A4%E0%B0%B2_%E0%B0%9C%E0%B0%BE%E0%B0%AC%E0%B0%BF%E0%B0%A4%E0%B0%BE">సామెతల జాబితా – తెలుగు వికీపీడియా</a>
       <span id="sourceNote"></span>
     </footer>

@@ -178,12 +178,38 @@ body {
   margin-left: 0.1em;
 }
 
-.meaning {
-  margin: 20px auto 0;
+.explain {
   max-width: 60ch;
-  font-size: 1.05rem;
+  margin: 28px auto 0;
+  padding-top: 22px;
+  border-top: 1px dashed var(--border);
+}
+
+.explain-label {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+
+.meaning {
+  margin: 0;
+  font-size: 1.1rem;
   line-height: 1.8;
+  color: var(--text);
+}
+
+.english {
+  margin: 10px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 0.98rem;
+  line-height: 1.6;
   color: var(--muted);
+}
+
+[hidden] {
+  display: none !important;
 }
 
 .actions {
