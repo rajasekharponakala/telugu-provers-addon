@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "తెలుగు సామెతలు - Telugu Proverbs",
+  "short_name": "Telugu Proverbs",
+  "version": "0.1.0",
+  "description": "Shows a random Telugu proverb (సామెత) every time you open a new tab.",
+  "homepage_url": "https://github.com/rajasekharponakala/telugu-provers-addon",
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "telugu-proverbs@rajasekharponakala",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  }
+}

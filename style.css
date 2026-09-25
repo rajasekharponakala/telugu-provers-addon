@@ -1,0 +1,279 @@
+@font-face {
+  font-family: "Noto Serif Telugu";
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/noto-serif-telugu-telugu-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Noto Serif Telugu";
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/noto-serif-telugu-telugu-700-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Noto Sans Telugu";
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/noto-sans-telugu-telugu-400-normal.woff2") format("woff2");
+}
+
+:root {
+  --bg: #fbf5ea;
+  --bg-accent: #f3e3c7;
+  --surface: rgba(255, 252, 245, 0.8);
+  --border: rgba(122, 64, 24, 0.14);
+  --text: #2b1a10;
+  --muted: #7a5d48;
+  --accent: #b3261e;
+  --accent-contrast: #fff8ee;
+  --gold: #c98a12;
+  --shadow: 0 24px 60px -30px rgba(90, 40, 10, 0.35);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17110d;
+    --bg-accent: #2a1c12;
+    --surface: rgba(38, 27, 20, 0.82);
+    --border: rgba(255, 214, 170, 0.12);
+    --text: #f6e9d8;
+    --muted: #c2a78d;
+    --accent: #ef7a5a;
+    --accent-contrast: #1b0f09;
+    --gold: #e6b04a;
+    --shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.8);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #17110d;
+  --bg-accent: #2a1c12;
+  --surface: rgba(38, 27, 20, 0.82);
+  --border: rgba(255, 214, 170, 0.12);
+  --text: #f6e9d8;
+  --muted: #c2a78d;
+  --accent: #ef7a5a;
+  --accent-contrast: #1b0f09;
+  --gold: #e6b04a;
+  --shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.8);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  font-family: "Noto Sans Telugu", system-ui, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  /* A soft rangoli-like dot grid over a warm glow. */
+  background-image:
+    radial-gradient(circle at 1px 1px, var(--border) 1.2px, transparent 0),
+    radial-gradient(ellipse at 50% 35%, var(--bg-accent), transparent 70%);
+  background-size: 28px 28px, 100% 100%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.toolbar {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.icon-button:hover {
+  color: var(--accent);
+  transform: rotate(-15deg);
+}
+
+.icon-button svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.card {
+  position: relative;
+  width: min(820px, 100%);
+  padding: clamp(32px, 6vw, 64px) clamp(20px, 6vw, 72px) clamp(24px, 4vw, 40px);
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.eyebrow {
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  margin: 0 12px;
+  vertical-align: middle;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.proverb {
+  margin: 0;
+  font-family: "Noto Serif Telugu", serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4.2vw, 2.9rem);
+  line-height: 1.6;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.proverb::before,
+.proverb::after {
+  color: var(--accent);
+  font-family: Georgia, serif;
+  opacity: 0.7;
+}
+
+.proverb::before {
+  content: "“";
+  margin-right: 0.1em;
+}
+
+.proverb::after {
+  content: "”";
+  margin-left: 0.1em;
+}
+
+.meaning {
+  margin: 20px auto 0;
+  max-width: 60ch;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.button {
+  min-width: 120px;
+  padding: 10px 22px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.button:hover {
+  border-color: var(--accent);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.button.primary {
+  color: var(--accent-contrast);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.button.primary:hover {
+  filter: brightness(1.08);
+}
+
+.button:focus-visible,
+.icon-button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.counter {
+  margin: 20px 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}
+
+.footer {
+  margin-top: 28px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.footer a {
+  color: inherit;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+  }
+}

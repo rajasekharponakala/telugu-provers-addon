@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="te">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>కొత్త ట్యాబ్ · తెలుగు సామెతలు</title>
+    <link rel="icon" href="icons/icon.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="toolbar">
+      <button id="themeToggle" class="icon-button" title="థీమ్ మార్చు (Toggle theme)" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+      </button>
+    </div>
+
+    <main class="card">
+      <p class="eyebrow">నేటి సామెత</p>
+      <blockquote id="proverb" class="proverb" lang="te" aria-live="polite"></blockquote>
+      <p id="meaning" class="meaning" hidden></p>
+
+      <div class="actions">
+        <button id="nextButton" class="button primary" title="మరొక సామెత (Space / →)">
+          మరొకటి
+        </button>
+        <button id="copyButton" class="button" title="కాపీ చేయండి (C)">
+          <span id="copyLabel">కాపీ</span>
+        </button>
+      </div>
+
+      <p id="counter" class="counter"></p>
+    </main>
+
+    <footer class="footer">
+      <a id="sourceLink" href="https://te.wikipedia.org/wiki/%E0%B0%B8%E0%B0%BE%E0%B0%AE%E0%B1%86%E0%B0%A4%E0%B0%B2_%E0%B0%9C%E0%B0%BE%E0%B0%AC%E0%B0%BF%E0%B0%A4%E0%B0%BE">సామెతల జాబితా – తెలుగు వికీపీడియా</a>
+      <span id="sourceNote"></span>
+    </footer>
+
+    <script src="proverbs.js"></script>
+    <script src="newtab.js"></script>
+  </body>
+</html>
