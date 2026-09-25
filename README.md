@@ -7,6 +7,21 @@ Inspired by [scientific-temper](https://github.com/bhavabhuthi/scientific-temper
 The proverbs come from the Telugu Wikipedia
 [సామెతల జాబితా](https://te.wikipedia.org/wiki/%E0%B0%B8%E0%B0%BE%E0%B0%AE%E0%B1%86%E0%B0%A4%E0%B0%B2_%E0%B0%9C%E0%B0%BE%E0%B0%AC%E0%B0%BF%E0%B0%A4%E0%B0%BE) page.
 
+## Screenshots
+
+![New tab page in light mode, showing a proverb with its Telugu and English meaning](screenshots/light.png)
+
+<table>
+  <tr>
+    <td><img src="screenshots/dark.png" alt="New tab page in dark mode"></td>
+    <td width="30%"><img src="screenshots/mobile.png" alt="New tab page on a narrow window"></td>
+  </tr>
+  <tr>
+    <td align="center">Dark mode</td>
+    <td align="center">Narrow window</td>
+  </tr>
+</table>
+
 ## Features
 
 - A random proverb on every new tab, without repeating the last 30 you saw
@@ -53,3 +68,4 @@ licensed CC BY-SA 4.0; the new tab page credits the source.
 | `proverbs.js` | Proverbs with their meanings (`PROVERBS` array) |
 | `fonts/` | Noto Telugu fonts (SIL Open Font License, see `fonts/OFL.txt`) |
 | `icons/icon.svg` | Add-on icon |
+| `screenshots/` | Screenshots used in this README (not part of the add-on package) |
